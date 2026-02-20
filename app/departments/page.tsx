@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 
 export default function DashboardPage() {
@@ -15,3 +15,39 @@ export default function DashboardPage() {
     </div>
   );
 }
+
+/*"use client";
+import { useEffect, useState } from "react";
+import { createClient } from "@supabase/supabase-js";
+import Link from "next/link";
+
+export default function DashboardPage() {
+  const [names, setNames] = useState([]);
+  const supabase = createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
+  );
+
+  useEffect(() => {
+    const fetchNames = async () => {
+      const { data } = await supabase.from("your_table_name").select("name");
+      setNames(data || []);
+    };
+    fetchNames();
+  }, []);
+
+  return (
+    <div className="space-y-4">
+      <h1 className="text-2xl font-semibold">Your Clubs</h1>
+      <ul className="list-disc pl-6">
+        {names.map((item: any) => (
+          <li key={item.id}>
+            <Link href={`/departments/${item.id}`} className="underline">
+              {item.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}*/
